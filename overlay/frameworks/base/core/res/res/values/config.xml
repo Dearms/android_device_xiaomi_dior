@@ -84,6 +84,9 @@
     <!-- Boolean indicating whether Softap requires reloading AP firmware -->
     <bool name="config_wifiApFirmwareReload">false</bool>
 
+    <!-- Make things go fast -->
+    <bool name="config_ui_enableFadingMarquee">false</bool>
+
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
@@ -144,16 +147,15 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>
-        <item>20</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
-        <item>800</item>
-        <item>1000</item>
-        <item>1200</item>
-        <item>1800</item>
-        <item>2500</item>
+        <item>11</item>
+        <item>41</item>
+        <item>91</item>
+        <item>161</item>
+        <item>226</item>
+        <item>321</item>
+        <item>641</item>
+        <item>1281</item>
+        <item>2601</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -162,20 +164,31 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>6</item>   <!-- 2% -->   <!-- 0 -->
-        <item>20</item>  <!-- 7% -->   <!-- 1 -->
-        <item>40</item>  <!-- 15% -->  <!-- 20 -->
-        <item>65</item>  <!-- 25% -->  <!-- 100 -->
-        <item>90</item>  <!-- 35% -->  <!-- 200 -->
-        <item>102</item> <!-- 40% -->  <!-- 500 -->
-        <item>115</item> <!-- 45% -->  <!-- 800 -->
-        <item>140</item> <!-- 55% -->  <!-- 1000 -->
-        <item>180</item> <!-- 70% -->  <!-- 1200 -->
-        <item>218</item> <!-- 85% -->  <!-- 1800 -->
-        <item>255</item> <!-- 100% --> <!-- 2500 -->
+        <item>39</item>
+        <item>64</item>
+        <item>64</item>
+        <item>90</item>
+        <item>116</item>
+        <item>142</item>
+        <item>170</item>
+        <item>199</item>
+        <item>227</item>
+        <item>255</item>
     </integer-array>
 
-    <integer name="config_buttonBrightnessSettingDefault">0</integer>
+    <!-- Hardware keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">7</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -191,40 +204,16 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">64</integer>
 
-    <!-- Whether to enable network location overlay which allows network
-         location provider to be replaced by an app at run-time. When disabled,
-         only the config_networkLocationProviderPackageName package will be
-         searched for network location provider, otherwise packages whose
-         signature matches the signatures of config_locationProviderPackageNames
-         will be searched, and the service with the highest version number will
-         be picked. Anyone who wants to disable the overlay mechanism can set it
-         to false.
-         -->
-    <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
-    <!-- Package name providing network location support. Used only when
-         config_enableNetworkLocationOverlay is false. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
-
-    <!-- Whether to enable fused location provider overlay which allows fused
-         location provider to be replaced by an app at run-time. When disabled,
-         only the config_fusedLocationProviderPackageName package will be
-         searched for fused location provider, otherwise packages whose
-         signature matches the signatures of config_locationProviderPackageNames
-         will be searched, and the service with the highest version number will
-         be picked. Anyone who wants to disable the overlay mechanism can set it
-         to false.
-         -->
-    <bool name="config_enableFusedLocationOverlay" translatable="false">false</bool>
-    <!-- Package name providing fused location support. Used only when
-         config_enableFusedLocationOverlay is false. -->
-    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
-
+    <!-- Allow changing button backlight brightness in Settings -->
+    <integer name="config_buttonBrightnessSettingDefault">180</integer>
+    
     <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true-->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
+    
     <!-- Whether UI for multi user should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
 
@@ -261,4 +250,5 @@
          for "perf_profile_values" array. Leave it blank if the device do not support
          performance profiles  -->
     <string name="config_perf_profile_default_entry" translatable="false">1</string>
+
 </resources>
