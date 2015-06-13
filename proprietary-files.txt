@@ -37,8 +37,10 @@ lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so
 lib/libqomx_core.so
 lib/hw/camera.msm8226.so
+vendor/lib/libFaceProc.so
+vendor/lib/libFaceDeform.so
+vendor/lib/libmmipl.so
 vendor/lib/libjpegdhw.so
-vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -281,7 +283,12 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
 
 # GPS
+etc/gps.conf
 bin/gsiff_daemon
+lib/hw/gps.default.so
+lib/libgps.utils.so
+lib/libloc_core.so
+lib/libloc_eng.so
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 vendor/lib/libgeofence.so
@@ -289,10 +296,15 @@ vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
 # Graphics
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -305,6 +317,7 @@ vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libOpenCL.so
+vendor/lib/libOpenVG.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libRSDriver_adreno.so
@@ -312,7 +325,11 @@ vendor/lib/libsc-a3xx.so
 vendor/lib/libscale.so
 
 # Keystore
-
+vendor/firmware/keymaster/keymaster.b00
+vendor/firmware/keymaster/keymaster.b01
+vendor/firmware/keymaster/keymaster.b02
+vendor/firmware/keymaster/keymaster.b03
+vendor/firmware/keymaster/keymaster.mdt
 
 # Media
 vendor/lib/libDivxDrm.so
@@ -333,9 +350,11 @@ vendor/lib/libqc-opt.so
 
 # Qualcomm
 bin/irsc_util
+lib/libAppDataSearch.so
 lib/libqminvapi.so
 vendor/lib/libdiag.so
 vendor/lib/libdsutils.so
+vendor/lib/libdsnetutils.so
 vendor/lib/libidl.so
 vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
