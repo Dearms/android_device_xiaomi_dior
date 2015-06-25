@@ -297,12 +297,7 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
 
 # GPS
-etc/gps.conf
 bin/gsiff_daemon
-lib/hw/gps.default.so
-lib/libgps.utils.so
-lib/libloc_core.so
-lib/libloc_eng.so
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 vendor/lib/libgeofence.so

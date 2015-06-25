@@ -16,7 +16,7 @@
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
@@ -31,11 +31,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
+    audio_policy.msm8226 \
     audio.primary.msm8226 \
     audio.r_submix.default \
-    audio.usb.default
-
-PRODUCT_PACKAGES += \
+    audio.usb.default \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
@@ -85,7 +84,8 @@ PRODUCT_PACKAGES += \
     copybit.msm8226 \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
-    memtrack.msm8226
+    memtrack.msm8226 \
+    liboverlay
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -95,9 +95,7 @@ PRODUCT_PACKAGES += \
 
 # Filesystem
 PRODUCT_PACKAGES += \
-    e2fsck \
     make_ext4fs \
-    resize2fs \
     setup_fs
 
 # FM
@@ -148,8 +146,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
     libdashplayer \
-    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
