@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+USE_CAMERA_STUB := true
+
+BOARD_VENDOR := xiaomi
+
 # Default toolchain
 TARGET_GCC_VERSION_EXP := 4.8
 
@@ -26,6 +30,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # Platform
+QCOM_BOARD_PLATFORMS  := msm8226
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 
@@ -57,6 +62,7 @@ BOARD_ANT_WIRELESS_DEVICE := "qualcomm-smd"
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+BOARD_OMXCODEC_FFMPEG := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/dior/bluetooth
@@ -65,7 +71,6 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{"xiaomi.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0}, {"persist.camera.", AID_MEDIA, 0},'
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
@@ -81,19 +86,22 @@ TARGET_USERIMAGES_USE_EXT4		:= true
 BOARD_FLASH_BLOCK_SIZE			:= 131072
 
 # FM
-TARGET_QCOM_NO_FM_FIRMWARE := true
-
-# Fonts
-EXTENDED_FONT_FOOTPRINT := true
+BOARD_HAVE_QCOM_FM := true
+QCOM_FM_ENABLED := true
 
 # GPS
 TARGET_GPS_HAL_PATH := device/xiaomi/dior/gps
 TARGET_PROVIDES_GPS_LOC_API := true
 
+# No old RPC for prop
+TARGET_NO_RPC := true
+
 # Graphics
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
+HAVE_ADRENO_SOURCE:= false
+TARGET_USES_POST_PROCESSING := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
@@ -121,24 +129,25 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
+# Flags
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
-
-# Legacy MMAP for pre-lollipop blobs
-BOARD_USES_LEGACY_MMAP := true
+TARGET_USES_QCOM_BSP := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/xiaomi/dior/rootdir/etc/fstab.dior
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+RECOVERY_FSTAB_VERSION       := 2
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += device/xiaomi/dior/sepolicy
-
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
