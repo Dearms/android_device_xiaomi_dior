@@ -109,10 +109,24 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# Filesystem
+# Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs
+    e2fsck \
+    setup_fs \
+    mke2fs \
+    tune2fs \
+    mount.exfat \
+    fsck.exfat \
+    mkfs.exfat \
+    ntfsfix \
+    ntfs-3g \
+    mkntfs \
+    dumpe2fs \
+    resize2fs \
+    e2fsck_static \
+    mke2fs_static \
+    resize2fs_static
 
 #ffmpeg omxcodec
 PRODUCT_PACKAGES += \
