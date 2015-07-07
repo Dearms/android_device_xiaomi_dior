@@ -106,7 +106,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
     memtrack.msm8226 \
-    liboverlay
+    liboverlay \
+    libemoji
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -271,6 +272,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
+
+# We have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Wifi
 PRODUCT_PACKAGES += \
