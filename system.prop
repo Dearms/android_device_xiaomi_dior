@@ -31,6 +31,7 @@ debug.egl.hw=1
 debug.composition.type=c2d
 persist.hwc.mdpcomp.enable=true
 debug.mdpcomp.logs=0
+ro.hwui.text_large_cache_height=2048
 
 # Media
 media.stagefright.enable-player=true
